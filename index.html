@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Kineroom — Análisis Biomecánico Clínico de Tren Inferior</title>
+  <title>kineRoom — Análisis Biomecánico Clínico de Tren Inferior</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- MediaPipe Pose -->
   <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose/pose.js" crossorigin="anonymous"></script>
@@ -50,7 +50,7 @@
         </div>
         <div>
           <div class="flex items-center gap-2">
-            <h1 class="text-lg sm:text-xl font-extrabold tracking-tight text-white">Kineroom</h1>
+            <h1 class="text-lg sm:text-xl font-extrabold tracking-tight text-white">kineRoom</h1>
             <span class="px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-teal-500/15 text-teal-300 border border-teal-500/30 rounded-full">
               Tamizaje Clínico
             </span>
@@ -370,7 +370,7 @@
     <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-2xl w-full p-5 shadow-2xl max-h-[90vh] flex flex-col">
       <div class="flex items-center justify-between border-b border-slate-800 pb-3 mb-4">
         <div>
-          <h2 class="text-lg font-bold text-white">Informe de Evaluación Cinemática — Kineroom</h2>
+          <h2 class="text-lg font-bold text-white">Informe de Evaluación Cinemática — kineRoom</h2>
           <p class="text-xs text-slate-400">Hemicuerpo evaluado: <span id="reportSideLabel" class="text-teal-400 font-semibold">Derecho</span></p>
         </div>
         <button onclick="closeReportModal()" class="text-slate-400 hover:text-white p-1">✕</button>
@@ -407,10 +407,10 @@
   <!-- MODAL CÓDIGO QR PARA COMPARTIR -->
   <div id="qrModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="bg-slate-900 border border-slate-700 rounded-2xl max-w-sm w-full p-6 text-center shadow-2xl">
-      <h3 class="text-lg font-bold text-white mb-1">Compartir Kineroom</h3>
+      <h3 class="text-lg font-bold text-white mb-1">Compartir kineRoom</h3>
       <p class="text-xs text-slate-400 mb-4">Escanea este código con la cámara de cualquier celular para abrir la evaluación en vivo (requiere que el archivo esté alojado en web/HTTPS).</p>
       <div class="bg-white p-3 rounded-xl inline-block mb-4">
-        <img id="qrImage" src="" alt="Código QR Kineroom" class="w-48 h-48 mx-auto" />
+        <img id="qrImage" src="" alt="Código QR kineRoom" class="w-48 h-48 mx-auto" />
       </div>
       <div class="flex items-center gap-2 bg-slate-950 border border-slate-800 rounded-lg p-2 mb-4">
         <input id="shareUrlInput" type="text" readonly class="bg-transparent text-xs text-slate-300 w-full focus:outline-none" />
@@ -1117,13 +1117,13 @@
       const evaluatorName = document.getElementById('evaluatorNameInput')?.value.trim() || 'Kinesiólogo Evaluador';
       const dateStr = new Date().toLocaleDateString('es-CL', { year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
 
-      // Encabezado Institucional Kineroom
+      // Encabezado Institucional kineRoom
       doc.setFillColor(15, 23, 42);
       doc.rect(0, 0, 210, 32, 'F');
       doc.setTextColor(255, 255, 255);
       doc.setFont('helvetica', 'bold');
       doc.setFontSize(18);
-      doc.text('KINEROOM', 14, 14);
+      doc.text('kineRoom', 14, 14);
       doc.setFontSize(10);
       doc.setFont('helvetica', 'normal');
       doc.setTextColor(94, 234, 212);
@@ -1227,11 +1227,11 @@
       doc.setFont('helvetica', 'italic');
       doc.setFontSize(8);
       doc.setTextColor(100, 116, 139);
-      const disclaimer = 'Nota importante: Este reporte generado por Kineroom entrega mediciones cinemáticas objetivas y alertas preventivas para orientar la evaluación física presencial. No constituye un diagnóstico médico ni reemplaza el criterio clínico del kinesiólogo tratante.';
+      const disclaimer = 'Nota importante: Este reporte generado por kineRoom entrega mediciones cinemáticas objetivas y alertas preventivas para orientar la evaluación física presencial. No constituye un diagnóstico médico ni reemplaza el criterio clínico del kinesiólogo tratante.';
       const splitDisclaimer = doc.splitTextToSize(disclaimer, 182);
       doc.text(splitDisclaimer, 14, currentY + 7);
 
-      doc.save(`Kineroom_Informe_${sideLabel}_${new Date().toISOString().slice(0,10)}.pdf`);
+      doc.save(`kineRoom_Informe_${sideLabel}_${new Date().toISOString().slice(0,10)}.pdf`);
     }
 
     function exportCSV() {
@@ -1241,7 +1241,7 @@
       }
 
       const sideLabel = evaluatedSide === 'right' ? 'Derecho' : 'Izquierdo';
-      let csv = `Kineroom - Reporte Cinematico de Tren Inferior\n`;
+      let csv = `kineRoom - Reporte Cinematico de Tren Inferior\n`;
       csv += `Hemicuerpo Evaluado,${sideLabel}\n`;
       csv += `Fotogramas Procesados,${sessionStats.history.length}\n\n`;
       csv += `Fotograma,Tiempo_Segundos,Cadera_Grados,Rodilla_Grados,Tobillo_Grados,Estado_Semaforo\n`;
@@ -1254,7 +1254,7 @@
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.setAttribute('download', `kineroom_evaluacion_${evaluatedSide}_${new Date().toISOString().slice(0,10)}.csv`);
+      link.setAttribute('download', `kineRoom_evaluacion_${evaluatedSide}_${new Date().toISOString().slice(0,10)}.csv`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
